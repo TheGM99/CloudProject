@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.orm import relationship
 
-from fastAPI.database import Base
+from database import Base
 
 metadata = Base.metadata
 

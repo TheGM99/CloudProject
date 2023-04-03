@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import text
-from . import models, schemas
+import models, schemas
 
 def get_games(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.VideoGames).order_by(models.VideoGames.id.asc()).offset(skip).limit(limit).all()
