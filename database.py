@@ -5,7 +5,7 @@ import os
 
 host = os.environ.get('DATABASE_IP','localhost')
 
-SQLALCHEMY_DATABASE_URL = "postgresql://fastAPIuser:fastAPI@" + host +"/CloudDB"
+SQLALCHEMY_DATABASE_URL = "postgresql://myapp:dbpass@" + host +"/CloudDB"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
