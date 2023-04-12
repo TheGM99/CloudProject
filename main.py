@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import crud, models, schemas
 from database import SessionLocal, engine
 import os 
+import uvicorn
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -50,3 +51,7 @@ def post_game(game:schemas.VideoGameCreate,db: Session = Depends(get_db)):
 @app.put("/games",response_model=list[schemas.VideoGame])
 def put_game(game:schemas.VideoGame, db: Session = Depends(get_db)):
     return crud.update_game(db=db,game=game)
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, port=5000, log_level="info")

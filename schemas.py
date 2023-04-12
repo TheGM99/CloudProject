@@ -1,16 +1,16 @@
 from pydantic import BaseModel
 
 class VideoGameBase(BaseModel):
-    Name: str
-    Platform: str
-    Year: str
-    Genre: str
-    Publisher: str
-    NA_Sales : float
-    EU_Sales : float
-    JP_Sales : float
-    Other_Sales : float
-    Global_Sales : float
+    name: str
+    platform: str
+    year: str
+    genre: str
+    publisher: str
+    na_sales : float
+    eu_sales : float
+    jp_sales : float
+    other_sales : float
+    global_sales : float
 
 class VideoGameCreate(VideoGameBase):
     pass

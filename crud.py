@@ -9,7 +9,7 @@ def get_last(db: Session):
     return db.query(models.VideoGames).order_by(models.VideoGames.id.desc()).limit(1).one()
 
 def get_games_by_name(db:Session, name:str):
-    return db.query(models.VideoGames).filter(models.VideoGames.Name.contains(name)).order_by(models.VideoGames.id.asc()).all()
+    return db.query(models.VideoGames).filter(models.VideoGames.name.contains(name)).order_by(models.VideoGames.id.asc()).all()
 
 def post_game(db:Session, game:schemas.VideoGameCreate, skip:int = 0, limit:int = 100):
     db_game = models.VideoGames(**game.dict())
@@ -21,15 +21,15 @@ def post_game(db:Session, game:schemas.VideoGameCreate, skip:int = 0, limit:int 
 
 def update_game(db:Session, game:schemas.VideoGame):
     db_game = db.query(models.VideoGames).filter(models.VideoGames.id == game.id).one()
-    db_game.Name = game.Name 
-    db_game.Genre = game.Genre
-    db_game.Year = game.Year
-    db_game.Platform = game.Platform
-    db_game.Publisher = game.Publisher
-    db_game.NA_Sales = game.NA_Sales
-    db_game.EU_Sales = game.EU_Sales
-    db_game.JP_Sales = game.JP_Sales
-    db_game.Other_Sales = game.Other_Sales
-    db_game.Global_Sales = game.Global_Sales
+    db_game.name = game.name 
+    db_game.genre = game.genre
+    db_game.year = game.year
+    db_game.platform = game.platform
+    db_game.publisher = game.publisher
+    db_game.na_sales = game.na_sales
+    db_game.eu_sales = game.eu_sales
+    db_game.jp_sales = game.jp_sales
+    db_game.other_sales = game.other_sales
+    db_game.global_sales = game.global_sales
     db.commit()
     return db.query(models.VideoGames).order_by(models.VideoGames.id.asc()).all()

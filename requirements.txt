@@ -22,6 +22,7 @@ hypothesis==6.70.2
 ipython==8.12.0
 ipywidgets==8.0.6
 jnius==1.1.0
+pyjnius
 keyring==23.13.1
 lingua==4.15.0
 lockfile==0.12.2
